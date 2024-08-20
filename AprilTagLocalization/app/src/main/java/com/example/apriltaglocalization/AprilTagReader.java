@@ -79,7 +79,7 @@ public class AprilTagReader {
 
                 .enableLiveView(true)
                 .setAutoStopLiveView(false)
-                .build();
+                .build(); 
 
 
         this.telemetry = telemetry;
