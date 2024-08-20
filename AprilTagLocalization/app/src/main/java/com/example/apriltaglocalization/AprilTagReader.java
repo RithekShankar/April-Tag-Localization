@@ -38,14 +38,36 @@ public class AprilTagReader {
 
 
 
-    public void initAprilTagCamera(HardwareMap hardwareMap, String webcamName, Telemetry telemetry) {
+    public void initAprilTagCamera(HardwareMap hardwareMap, String webcamName, Telemetry telemetry,LensIntrinsics intrinsics) {
         processor = new AprilTagProcessor.Builder()
                 .setTagFamily(AprilTagProcessor.TagFamily.TAG_36h11)
                 .setDrawTagID(true)
                 .setDrawTagOutline(true)
                 .setDrawAxes(true)
                 .setDrawCubeProjection(true)
-                .setLensIntrinsics(822.317f,822.317f,319.495f,242.502f)
+                .setLensIntrinsics(intrinsics.fx,intrinsics.fy,intrinsics.cx,intrinsics.cy)
+                .setOutputUnits(DistanceUnit.INCH, AngleUnit.DEGREES)
+                .build();
+
+        vportal = new VisionPortal.Builder()
+                .setCamera(hardwareMap.get(WebcamName.class, webcamName))
+                .addProcessor(processor)
+                .setCameraResolution(new Size(640, 480))
+                .setStreamFormat(VisionPortal.StreamFormat.YUY2)
+
+                .enableLiveView(true)
+                .setAutoStopLiveView(false)
+                .build();
+        this.telemetry = telemetry;
+    }
+
+    public void initAprilTagCamera(HardwareMap hardwareMap, String webcamName, Telemetry telemetry){
+        processor = new AprilTagProcessor.Builder()
+                .setTagFamily(AprilTagProcessor.TagFamily.TAG_36h11)
+                .setDrawTagID(true)
+                .setDrawTagOutline(true)
+                .setDrawAxes(true)
+                .setDrawCubeProjection(true)
                 .setOutputUnits(DistanceUnit.INCH, AngleUnit.DEGREES)
                 .build();
 
@@ -61,8 +83,6 @@ public class AprilTagReader {
 
 
         this.telemetry = telemetry;
-
-
     }
 
 
