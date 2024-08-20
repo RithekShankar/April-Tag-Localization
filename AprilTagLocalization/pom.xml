@@ -1,7 +1,0 @@
-<distributionManagement>
-   <repository>
-     <id>github</id>
-     <name>GitHub RithekShankar Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/RithekShankar/April-Tag-Localization</url>
-   </repository>
-</distributionManagement>
