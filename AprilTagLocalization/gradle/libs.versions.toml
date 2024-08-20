@@ -1,0 +1,21 @@
+[versions]
+agp = "8.5.2"
+kotlin = "1.9.0"
+playServicesWearable = "18.0.0"
+roadrunner = "0.1.9"
+ftcVision = "9.0.1"
+ftcRobotCore = "9.0.1"
+
+[libraries]
+play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
+
+
+roadrunner = {group = "com.acmerobotics.roadrunner",name = "ftc", version.ref = "roadrunner"}
+ftcVision = {group = "org.firstinspires.ftc", name= "Vision", version.ref = "ftcVision"}
+ftcRobotCore = {group = "org.firstinspires.ftc", name = "RobotCore", version.ref = "ftcRobotCore"}
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
