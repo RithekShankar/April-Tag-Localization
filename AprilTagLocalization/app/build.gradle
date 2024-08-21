@@ -1,0 +1,80 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    id 'maven-publish'
+}
+
+
+android {
+    namespace = "com.example.apriltaglocalization"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.apriltaglocalization"
+        minSdk = 30
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+
+    }
+
+    buildTypes {
+        release {
+//            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+publishing {
+    publications {
+
+        var groupId = project.group
+        var artifactId = project.name
+        version = project.version
+        if (project.plugins.hasPlugin('java')) {
+            from components.java
+        }
+        if (project.plugins.hasPlugin('spring-boot')) {
+            pom {
+                parent {
+                    groupId "org.springframework.boot"
+                    artifactId "spring-boot-starter-parent"
+                    version "${project.versions.springBoot}"
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/RithekShankar/April-Tag-Localization")
+            credentials {
+                username = project.findProperty("gpr.user")  ?: System.getenv("RithekShankar")
+                password = project.findProperty("gpr.key") ?: System.getenv("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")
+            }
+
+        }
+    }
+
+
+}
+
+dependencies {
+
+    implementation(libs.play.services.wearable)
+    implementation(libs.roadrunner) // core
+    implementation(libs.ftcVision)
+    implementation(libs.ftcRobotCore)
+
+}
