@@ -38,13 +38,13 @@ jobs:
     - name: Build with Gradle
       run: ./AprilTagLocalization/gradlew
       env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        USERNAME: ${{ github.USERNAME }}
+        TOKEN: ${{ secrets.PUBLISH_KEY }}
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
       run: ./gradlew publish
       env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        USERNAME: ${{ github.USERNAME }}
+        TOKEN: ${{ secrets.PUBLISH_KEY }}
