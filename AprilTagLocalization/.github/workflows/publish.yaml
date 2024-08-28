@@ -1,0 +1,26 @@
+name: Gradle Package
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+     
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+
+      - name: Publish package
+        run: ./AprilTagLocalization/gradlew publish
+        env:
+          MAVEN_USERNAME: ${{ secrets.USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.PUBLISH_KEY }}
