@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03342046-b10b-4f22-9997-aedaeea43fa7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AprilTagLocalization/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/AprilTagLocalization/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AprilTagLocalization/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/AprilTagLocalization/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AprilTagLocalization/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AprilTagLocalization/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AprilTagLocalization/app/src/main/java/com/example/apriltaglocalization/AprilTagReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AprilTagLocalization/app/src/main/java/com/example/apriltaglocalization/AprilTagReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AprilTagLocalization/app/src/main/java/com/example/apriltaglocalization/LensIntrinsics.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +50,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.AprilTagLocalization.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "android.gradle.sync.needed": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "kotlin-language-version-configured": "true",
@@ -66,7 +70,27 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.AprilTagLocalization">
+    <configuration name="AprilTagLocalization" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/AprilTagLocalization" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="gradlew" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -84,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AprilTagLocalization" />
         <item itemvalue="Shell Script.gradlew" />
       </list>
     </recent_temporary>
