@@ -1,6 +1,9 @@
-package com.example.apriltaglocalization;
+package com.rithek.apriltaglocalization;
 
-import android.util.Size;
+
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.toRadians;
 
 import androidx.annotation.NonNull;
 
@@ -10,20 +13,14 @@ import com.acmerobotics.roadrunner.Twist2d;
 import com.acmerobotics.roadrunner.Twist2dDual;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.Vector2dDual;
+import com.rithek.apriltaglocalization.AprilTags.Into_The_Deep_2024_2025;
+import com.rithek.apriltaglocalization.AprilTags.Seasons;
 
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.vision.VisionPortal;
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
-
-
-import static java.lang.Math.*;
 
 import java.util.ArrayList;
 
@@ -35,43 +32,28 @@ public class AprilTagReader {
     private VisionPortal vportal;
 
     private Telemetry telemetry;
+    private Seasons season;
+    private Class tags;
 
 
-
-    public void initAprilTagCamera(AprilTagProcessor processor,VisionPortal vportal){
+    public void initAprilTagCamera(AprilTagProcessor processor, VisionPortal vportal, Seasons season){
         this.processor = processor;
         this.vportal = vportal;
+        this.season = season;
+    }
+    public void initAprilTagCamera(AprilTagProcessor processor, VisionPortal vportal, Seasons season,Telemetry telemetry){
+        this.processor = processor;
+        this.vportal = vportal;
+        this.season = season;
+        this.telemetry = telemetry;
+        this.tags = setSeasonEnum(season);
     }
 
+    private Class setSeasonEnum(Seasons season){
 
-    @Deprecated
-    public double getIDX(int id){
-        ArrayList<AprilTagDetection> detections = processor.getDetections();
-
-        for (AprilTagDetection detection : detections) {
-            if (detection != null &&detection.id == id) {
-                return detection.ftcPose.x;
-
-            }
-
-
-        }
-        return 0;
+        return Into_The_Deep_2024_2025.class;
     }
-    @Deprecated
-    public double getIDY(int id){
-        ArrayList<AprilTagDetection> detections = processor.getFreshDetections();
 
-        for (AprilTagDetection detection : detections) {
-            if (detection != null &&detection.id == id) {
-                return detection.ftcPose.y;
-
-            }
-
-
-        }
-        return 0;
-    }
 
 
 //This shows the position relative to the APRIL TAG'S COORDINATE AXES, NOT THE CAMERA'S
@@ -117,7 +99,7 @@ public class AprilTagReader {
         yXCoord = cos(toRadians(yAngle)) * yReading;
         yYCoord = sin(toRadians(yAngle)) * yReading;
 
-        heading = 90-yaw;
+        heading = 90-yaw+AprilTag.getAprilTag(detection.id).heading;
 
         botX = xXCoord + yXCoord;
         botY = xYCoord + yYCoord;
@@ -173,6 +155,7 @@ public class AprilTagReader {
                 )
         );
     }
+
 
 
     public enum AprilTag {

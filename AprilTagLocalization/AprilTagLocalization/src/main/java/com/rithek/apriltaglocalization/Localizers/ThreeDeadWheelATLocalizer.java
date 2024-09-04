@@ -1,4 +1,4 @@
-package com.example.apriltaglocalization.Localizers;
+package com.rithek.apriltaglocalization.Localizers;
 
 
 import com.acmerobotics.roadrunner.DualNum;
@@ -11,11 +11,10 @@ import com.acmerobotics.roadrunner.ftc.FlightRecorder;
 import com.acmerobotics.roadrunner.ftc.OverflowEncoder;
 import com.acmerobotics.roadrunner.ftc.PositionVelocityPair;
 import com.acmerobotics.roadrunner.ftc.RawEncoder;
-import com.example.apriltaglocalization.AprilTagReader;
-import com.example.apriltaglocalization.ThreeDeadWheelInputsMessage;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
+import com.rithek.apriltaglocalization.AprilTagReader;
+import com.rithek.apriltaglocalization.ThreeDeadWheelInputsMessage;
 
 
 public class ThreeDeadWheelATLocalizer extends AprilTagCorrectionLocalizer {
@@ -25,7 +24,8 @@ public class ThreeDeadWheelATLocalizer extends AprilTagCorrectionLocalizer {
         public double par1YTicks = 1.0; // y position of the second parallel encoder (in tick units)
         public double perpXTicks = 0.0; // x position of the perpendicular encoder (in tick units)
     }
-    public static ThreeDeadWheelATLocalizer.Params PARAMS = new ThreeDeadWheelATLocalizer.Params();
+
+    public static Params PARAMS = new Params();
 
     public final Encoder par0, par1, perp;
 

@@ -1,4 +1,4 @@
-package com.example.apriltaglocalization.Localizers;
+package com.rithek.apriltaglocalization.Localizers;
 
 import com.acmerobotics.roadrunner.DualNum;
 import com.acmerobotics.roadrunner.Time;

@@ -22,4 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "April Tag Localization"
 include(":app")
- 
+include(":AprilTagLocalization")

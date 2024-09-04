@@ -1,9 +1,9 @@
-package com.example.apriltaglocalization.Localizers;
+package com.rithek.apriltaglocalization.Localizers;
 
 import com.acmerobotics.roadrunner.Time;
 import com.acmerobotics.roadrunner.Twist2dDual;
-import com.example.apriltaglocalization.AprilTagReader;
-import com.example.apriltaglocalization.NoAprilTagFoundException;
+import com.rithek.apriltaglocalization.AprilTagReader;
+import com.rithek.apriltaglocalization.NoAprilTagFoundException;
 
 
 public abstract class AprilTagCorrectionLocalizer extends DualMethodLocalizer {

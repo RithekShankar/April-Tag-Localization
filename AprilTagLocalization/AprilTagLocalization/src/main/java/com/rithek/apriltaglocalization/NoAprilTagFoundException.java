@@ -1,4 +1,4 @@
-package com.example.apriltaglocalization;
+package com.rithek.apriltaglocalization;
 
 public class NoAprilTagFoundException  extends Exception{
 

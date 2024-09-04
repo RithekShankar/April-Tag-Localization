@@ -1,4 +1,4 @@
-package com.example.apriltaglocalization;
+package com.rithek.apriltaglocalization;
 
 import com.acmerobotics.roadrunner.ftc.PositionVelocityPair;
 
