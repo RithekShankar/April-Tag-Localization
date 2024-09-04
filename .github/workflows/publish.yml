@@ -1,10 +1,18 @@
-name: Gradle Package
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
 
+# GitHub recommends pinning actions to a commit SHA.
+# To get a newer version, you will need to update the SHA.
+# You can also reference a tag or branch, but the action may change without warning.
+
+name: Publish package to the Maven Central Repository
 on:
   release:
     types: [created]
   workflow_dispatch:
-     
+    
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -18,12 +26,9 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-      - name: Init gradlew
-        run: ./AprilTagLocalization/gradlew init
-      - name: Make gradlew executable
-        run: chmod +x ./AprilTagLocalization/gradlew
+
       - name: Publish package
-        run: ./AprilTagLocalization/gradlew publish
+        run: ./April-Tag-Localization/gradlew publish
         env:
-          MAVEN_USERNAME: ${{ secrets.USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.PUBLISH_KEY }}
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
