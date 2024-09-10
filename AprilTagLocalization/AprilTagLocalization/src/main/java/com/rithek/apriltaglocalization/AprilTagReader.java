@@ -14,7 +14,8 @@ import com.acmerobotics.roadrunner.Twist2dDual;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.Vector2dDual;
 import com.rithek.apriltaglocalization.AprilTags.Into_The_Deep_2024_2025;
-import com.rithek.apriltaglocalization.AprilTags.Seasons;
+import com.rithek.apriltaglocalization.AprilTags.AprilTagSeason;
+import com.rithek.apriltaglocalization.AprilTags.PositionedAprilTag;
 
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -32,16 +33,17 @@ public class AprilTagReader {
     private VisionPortal vportal;
 
     private Telemetry telemetry;
-    private Seasons season;
+    private AprilTagSeason season;
     private Class tags;
 
 
-    public void initAprilTagCamera(AprilTagProcessor processor, VisionPortal vportal, Seasons season){
+
+    public void initAprilTagCamera(AprilTagProcessor processor, VisionPortal vportal, AprilTagSeason season){
         this.processor = processor;
         this.vportal = vportal;
         this.season = season;
     }
-    public void initAprilTagCamera(AprilTagProcessor processor, VisionPortal vportal, Seasons season,Telemetry telemetry){
+    public void initAprilTagCamera(AprilTagProcessor processor, VisionPortal vportal, AprilTagSeason season, Telemetry telemetry){
         this.processor = processor;
         this.vportal = vportal;
         this.season = season;
@@ -49,13 +51,15 @@ public class AprilTagReader {
         this.tags = setSeasonEnum(season);
     }
 
-    private Class setSeasonEnum(Seasons season){
+    private Class setSeasonEnum(AprilTagSeason season){
 
         return Into_The_Deep_2024_2025.class;
     }
 
 
-
+    public static PositionedAprilTag getAprilTagInfo(int id){
+        return Into_The_Deep_2024_2025.getAprilTag(id);
+    }
 //This shows the position relative to the APRIL TAG'S COORDINATE AXES, NOT THE CAMERA'S
 
     /**

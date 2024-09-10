@@ -1,17 +1,18 @@
 package com.rithek.apriltaglocalization.AprilTags;
 
+
 /**
  * Heading instance variable is the angle the PERPENDICULAR FACING THE IN FRONT (the side with the april tag) makes with the positive x axis (going towards the red alliance stations)
  */
-public enum Into_The_Deep_2024_2025 {
+public enum Into_The_Deep_2024_2025  implements PositionedAprilTag  {
     ONE(1,30,0,0,0),
     TWO(2,30,0,0,0),
     THREE(3,30,0,0,0),
     FOUR(4,30,0,0,0),
     FIVE(5,30,0,0,0),
     SIX(6,30,0,0,0),
-    SEVEN(0,0,0,0,0),
-    EIGHT(0,0,0,0,0),
+    SEVEN(7,0,0,0,0),
+    EIGHT(8,0,0,0,0),
     NINE(9,0,0,0,0),
     TEN(10,0,0,0,0);
 
